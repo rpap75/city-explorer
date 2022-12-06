@@ -5,23 +5,27 @@
 
 Name of feature: #1
 
-Estimate of time needed to complete:
-2 hours
+Estimate of time needed to complete:2 hours
+
 Start time: 2:30
 
 Finish time: 3:55
 
 Actual time needed to complete: 1hr 30min
 
+
 Name of feature: #2
 
-Estimate of time needed to complete:
-3 hours 30 minutes
-Start time: 5:00
+Estimate of time needed to complete:2 hours
 
-Finish time: 6:30
+Start time: 4:00
 
-Actual time needed to complete:
+Finish time: 8:30
+
+Actual time needed to complete:4 hours 30 minutes
+
+
+
 Name of feature: #3
 
 Estimate of time needed to complete:2 hours
@@ -31,6 +35,7 @@ Start time:2:00
 Finish time:3:00
 
 Actual time needed to complete:1 hour
+
 
 Name of feature: #4
 
