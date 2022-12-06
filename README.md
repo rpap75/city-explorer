@@ -7,12 +7,12 @@
 Name of feature: #1
 
 Estimate of time needed to complete: 
+2 hours
+Start time: 2:30
 
-Start time: 
+Finish time: 3:55
 
-Finish time: 
-
-Actual time needed to complete: 
+Actual time needed to complete: 1hr 30min
 
 Name of feature: #2
 
