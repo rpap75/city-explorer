@@ -17,10 +17,10 @@ Actual time needed to complete: 1hr 30min
 Name of feature: #2
 
 Estimate of time needed to complete: 
+2 hours 30 minutes
+Start time: 4:00
 
-Start time: 
-
-Finish time: 
+Finish time: 6:30
 
 Actual time needed to complete: 
 Name of feature: #3
