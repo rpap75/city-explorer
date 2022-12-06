@@ -2,6 +2,8 @@ import React from 'react';
 import Form from './components/Form';
 import axios from 'axios';
 import LocationDisplay from './components/LocationDisplay';
+import ErrorDisplay from './components/ErrorDisplay';
+
 
 class App extends React.Component {
   constructor() {
@@ -11,27 +13,46 @@ class App extends React.Component {
       locationSearch: '',
       latitude: '',
       longitude: '',
+      errorMsg: '',
+      displayError: false,
+      mapDisplay: false,
     }
+  }
+
+  handleError = () => {
+    this.setState({ errorMsg: null });
   }
 
   handleLocationSearch = async (e) => {
     e.preventDefault();
-    await this.setState({
-      locationSearch: e.target.search.value
+    try {
 
-    })
-    let locationUrl = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.locationSearch}&format=json`
+      await this.setState({
+        locationSearch: e.target.search.value
 
-    let locationResponse = await axios.get(locationUrl)
+      })
+      let locationUrl = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.locationSearch}&format=json`
 
-    console.log(locationResponse);
+      let locationResponse = await axios.get(locationUrl)
 
-    let city = locationResponse.data[0]
-    this.setState({
-      display_name: city.display_name,
-      latitude: city.lat,
-      longitude: city.lon,
-    })
+      console.log(locationResponse);
+
+      let city = locationResponse.data[0]
+      this.setState({
+        display_name: city.display_name,
+        latitude: city.lat,
+        longitude: city.lon,
+        mapDisplay: true,
+        displayError: false,
+      })
+    } catch (error) {
+      this.setState({
+        errorMsg: error.response.status + ' : ' + error.response.data,
+        mapDisplay: false,
+        displayError: true,
+      })
+    }
+
   }
 
   render() {
@@ -42,6 +63,11 @@ class App extends React.Component {
           name={this.state.display_name}
           lon={this.state.longitude}
           lat={this.state.latitude}
+        />
+        <ErrorDisplay
+          handleError={this.handleError}
+          errorMsg={this.state.errorMsg}
+          displayError={this.state.displayError}
         />
       </div>
     );

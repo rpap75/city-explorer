@@ -3,10 +3,9 @@
 **Author**: Ryan Papsin
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-
 Name of feature: #1
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete:
 2 hours
 Start time: 2:30
 
@@ -16,32 +15,32 @@ Actual time needed to complete: 1hr 30min
 
 Name of feature: #2
 
-Estimate of time needed to complete: 
-2 hours 30 minutes
-Start time: 4:00
+Estimate of time needed to complete:
+3 hours 30 minutes
+Start time: 5:00
 
 Finish time: 6:30
 
-Actual time needed to complete: 
+Actual time needed to complete:
 Name of feature: #3
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete:
 
-Start time: 
+Start time:
 
-Finish time: 
+Finish time:
 
 Actual time needed to complete:
 
 Name of feature: #4
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete:
 
-Start time: 
+Start time:
 
-Finish time: 
+Finish time:
 
-Actual time needed to complete: 
+Actual time needed to complete:
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
