@@ -24,23 +24,23 @@ Finish time: 6:30
 Actual time needed to complete:
 Name of feature: #3
 
-Estimate of time needed to complete:
+Estimate of time needed to complete:2 hours
 
-Start time:
+Start time:2:00
 
-Finish time:
+Finish time:3:00
 
-Actual time needed to complete:
+Actual time needed to complete:1 hour
 
 Name of feature: #4
 
-Estimate of time needed to complete:
+Estimate of time needed to complete:2 hours
 
-Start time:
+Start time:3:00
 
-Finish time:
+Finish time:4:20
 
-Actual time needed to complete:
+Actual time needed to complete:1 hours 20 minutes
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
