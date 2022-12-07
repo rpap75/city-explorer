@@ -19,6 +19,8 @@ class App extends React.Component {
     }
   }
 
+handle
+
   handleError = () => {
     this.setState({ errorMsg: null });
   }
