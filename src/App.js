@@ -4,6 +4,7 @@ import axios from 'axios';
 import LocationDisplay from './components/LocationDisplay';
 import ErrorDisplay from './components/ErrorDisplay';
 import Weather from './components/Weather';
+import e from 'cors';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends React.Component {
       errorMsg: '',
       displayError: false,
       mapDisplay: false,
-      weatherData: [],
+      forecastData: [],
     }
   }
 
@@ -46,6 +47,8 @@ class App extends React.Component {
         mapDisplay: true,
         displayError: false,
       })
+      this.handleWeatherSearch(this.state.locationSearch);
+
     } catch (error) {
       this.setState({
         errorMsg: error.response.status + ' : ' + error.response.data,
@@ -56,19 +59,44 @@ class App extends React.Component {
 
   }
 
-  handleWeatherSearch = async (lat, lon) => {
+
+  handleWeatherSearch = async (searchQuery) => {
+    let request = {
+      method: 'GET',
+      url: `http://localhost:3001/weather?searchQuery=${searchQuery}`
+    }
+    console.log(request);
     try {
-
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/weather?searchQuery=${this.state.location}&lat=${lat}&lon=${lon}`);
-
+      let response = await axios(request);
       this.setState({
         forecastData: response.data,
-      })
-    }
-    catch (err) {
+      });
+    } catch (err) {
       this.setState({ error: err.response.data });
     }
-  };
+  }
+
+
+
+
+
+
+
+
+
+  // handleWeatherSearch = async (lat, lon) => {
+  //   try {
+
+  //     let response = await axios.get(`${process.env.REACT_APP_API_URL}/weather?searchQuery=${this.state.location}&lat=${lat}&lon=${lon}`);
+
+  //     this.setState({
+  //       forecastData: response.data,
+  //     })
+  //   }
+  //   catch (err) {
+  //     this.setState({ error: err.response.data });
+  //   }
+  // };
 
 
   render() {
