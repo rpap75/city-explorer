@@ -3,7 +3,7 @@ import Form from './components/Form';
 import axios from 'axios';
 import LocationDisplay from './components/LocationDisplay';
 import ErrorDisplay from './components/ErrorDisplay';
-
+import Weather from './components/Weather';
 
 class App extends React.Component {
   constructor() {
@@ -16,10 +16,9 @@ class App extends React.Component {
       errorMsg: '',
       displayError: false,
       mapDisplay: false,
+      weatherData: [],
     }
   }
-
-handle
 
   handleError = () => {
     this.setState({ errorMsg: null });
@@ -27,13 +26,13 @@ handle
 
   handleLocationSearch = async (e) => {
     e.preventDefault();
+
     try {
 
       await this.setState({
         locationSearch: e.target.search.value
-
       })
-      let locationUrl = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.locationSearch}&format=json`
+      let locationUrl = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.locationSearch}&format=json`;
 
       let locationResponse = await axios.get(locationUrl)
 
@@ -57,6 +56,21 @@ handle
 
   }
 
+  handleWeatherSearch = async (lat, lon) => {
+    try {
+
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/weather?searchQuery=${this.state.location}&lat=${lat}&lon=${lon}`);
+
+      this.setState({
+        forecastData: response.data,
+      })
+    }
+    catch (err) {
+      this.setState({ error: err.response.data });
+    }
+  };
+
+
   render() {
     return (
       <div className="App" >
@@ -71,6 +85,7 @@ handle
           errorMsg={this.state.errorMsg}
           displayError={this.state.displayError}
         />
+        <Weather forecast={this.state.forecastData} />
       </div>
     );
   }
