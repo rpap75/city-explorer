@@ -45,7 +45,8 @@ class App extends React.Component {
         longitude: response.data[0].lon,
         mapDisplay: true,
         displayError: false,
-      }, this.handleWeatherSearch)
+      }, this.handleWeatherSearch);
+      this.handleMovieSearch();
 
     } catch (error) {
       this.setState({
@@ -60,10 +61,12 @@ class App extends React.Component {
   handleMovieSearch = async () => {
     let request = {
       method: 'GET',
-      url: `${process.env.REACT_APP_API_URL}/movie?movie=${this.state.movie}`
+      url: `${process.env.REACT_APP_API_URL}/movies?searchQuery=${this.state.locationSearch}`
     }
+    console.log('hello hello hello', request.url);
     try {
       let response = await axios(request);
+      console.log(response);
       this.setState({
         movieData: response.data,
       });
