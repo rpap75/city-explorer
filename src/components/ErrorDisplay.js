@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 class ErrorDisplay extends React.Component {
   render() {
     return (
-
       this.props.errorMsg ?
         <>
           <Alert variant="danger">
@@ -16,7 +15,6 @@ class ErrorDisplay extends React.Component {
           </Alert>
         </>
         : null
-
     )
   }
 }
