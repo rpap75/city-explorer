@@ -26,7 +26,6 @@ class App extends React.Component {
     this.setState({ errorMsg: null });
   }
 
-
   handleLocationSearch = async (e) => {
     e.preventDefault();
     this.setState({ locationSearch: e.target.search.value })
@@ -47,7 +46,6 @@ class App extends React.Component {
         displayError: false,
       }, this.handleWeatherSearch);
       this.handleMovieSearch();
-
     } catch (error) {
       this.setState({
         errorMsg: error.response.status + ' : ' + error.response.data,
@@ -55,7 +53,6 @@ class App extends React.Component {
         displayError: true,
       })
     }
-
   }
 
   handleMovieSearch = async () => {
@@ -63,10 +60,8 @@ class App extends React.Component {
       method: 'GET',
       url: `${process.env.REACT_APP_API_URL}/movies?searchQuery=${this.state.locationSearch}`
     }
-    console.log('hello hello hello', request.url);
     try {
       let response = await axios(request);
-      console.log(response);
       this.setState({
         movieData: response.data,
       });
@@ -80,7 +75,6 @@ class App extends React.Component {
       method: 'GET',
       url: `${process.env.REACT_APP_API_URL}/weather?lat=${this.state.latitude}&lon=${this.state.longitude}`
     }
-
     try {
       let response = await axios(request);
       this.setState({
@@ -109,7 +103,6 @@ class App extends React.Component {
           < Weather forecast={this.state.forecastData} />
           : null
         }
-
         {this.state.movieData.length ?
           < Movie movieLi={this.state.movieData} />
           : null

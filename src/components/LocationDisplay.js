@@ -14,7 +14,6 @@ class LocationDisplay extends React.Component {
       </>
     )
   }
-
 }
 
 export default LocationDisplay;
